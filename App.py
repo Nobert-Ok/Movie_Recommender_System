@@ -91,10 +91,7 @@ def run():
                     director,cast,story,total_rat = get_movie_info(link)
                     st.markdown(f"({c})[ {movie}]({link})")
                     st.markdown(director)
-                    st.markdown(cast)
                     st.markdown(story)
-                    st.markdown(total_rat)
-                    st.markdown('IMDB Rating: ' + str(ratings) + '⭐')
         else:
             if select_movie == '--Select--':
                 st.warning('Please select Movie!!')
@@ -112,10 +109,8 @@ def run():
                     movie_poster_fetcher(link)
                     director,cast,story,total_rat = get_movie_info(link)
                     st.markdown(director)
-                    st.markdown(cast)
                     st.markdown(story)
-                    st.markdown(total_rat)
-                    st.markdown('IMDB Rating: ' + str(ratings) + '⭐')
+
     elif cat_op == category[2]:
         sel_gen = st.multiselect('Select Genres:', genres)
         dec = st.radio("Want to Fetch Movie Poster?", ('Yes', 'No'))
@@ -135,10 +130,8 @@ def run():
                     st.markdown(f"({c})[ {movie}]({link})")
                     director,cast,story,total_rat = get_movie_info(link)
                     st.markdown(director)
-                    st.markdown(cast)
                     st.markdown(story)
-                    st.markdown(total_rat)
-                    st.markdown('IMDB Rating: ' + str(ratings) + '⭐')
+
         else:
             if sel_gen:
                 imdb_score = st.slider('Choose IMDb score:', 1, 10, 8)
@@ -154,8 +147,6 @@ def run():
                     movie_poster_fetcher(link)
                     director,cast,story,total_rat = get_movie_info(link)
                     st.markdown(director)
-                    st.markdown(cast)
                     st.markdown(story)
-                    st.markdown(total_rat)
-                    st.markdown('IMDB Rating: ' + str(ratings) + '⭐')
+                    
 run()
