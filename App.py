@@ -35,7 +35,7 @@ def get_movie_info(imdb_link):
     movie_story = 'Story: ' + str(movie_descr[2]).strip()+'.'
     rating = s_data.find("div", class_="AggregateRatingButton__TotalRatingAmount-sc-1ll29m0-3 jkCVKJ")
     rating = str(rating).split('<div class="AggregateRatingButton__TotalRatingAmount-sc-1ll29m0-3 jkCVKJ')
-    rating = str(rating[1]).split("</div>")
+    rating = str(rating[0]).split("</div>")
     rating = str(rating[0]).replace(''' "> ''', '').replace('">', '')
 
     movie_rating = 'Total Rating count: '+ rating
@@ -61,12 +61,7 @@ st.set_page_config(
 )
 
 def run():
-    img1 = Image.open('./meta/logo.jpg')
-    img1 = img1.resize((250,250),)
-    st.image(img1,use_column_width=False)
     st.title("Movie Recommender System")
-    st.markdown('''<h4 style='text-align: left; color: #d73b5c;'>* Data is based "IMDB 5000 Movie Dataset"</h4>''',
-                unsafe_allow_html=True)
     genres = ['Action', 'Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Family',
               'Fantasy', 'Film-Noir', 'Game-Show', 'History', 'Horror', 'Music', 'Musical', 'Mystery', 'News',
               'Reality-TV', 'Romance', 'Sci-Fi', 'Short', 'Sport', 'Thriller', 'War', 'Western']
